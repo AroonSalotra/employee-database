@@ -1,26 +1,44 @@
+import { Fragment, useState, useEffect } from "react";
 import EmployeeCard from "./EmployeeCard";
 import EmployeeData from "../data/EmployeeData.json"
-import { Fragment } from "react";
+import dayjs from "dayjs";
 
 const Employees = () => {
+
+    const [today, setToday] = useState(null)
+
+    useEffect(() => {
+        const getDay = dayjs().day()
+        
+        const formatDay = dayjs().day(getDay).format(`dddd`)
+        // const formatTime = dayjs().day(getDay).format(`MM`)
+        setToday(current => formatDay)
+        // console.log(formatTime)
+    }, [])
+
+
     return (
+        <section>
 
-        <div className="gap-4 pt-20 grid grid-cols-3">
+            <h1 className="text-4xl text-center">{today}</h1>
 
-            {EmployeeData.map(({ employeeId, name, start, finish }, index) => {
-                return <Fragment key={index}>
+            <div className="gap-4 pt-20 grid grid-cols-3">
 
-                    <EmployeeCard
-                        id={employeeId}
-                        name={name}
-                        start={start}
-                        finish={finish}
-                    />
+                {EmployeeData.map(({ employeeId, name, start, finish }, index) => {
+                    return <Fragment key={index}>
 
-                </Fragment>
-            })}
+                        <EmployeeCard
+                            id={employeeId}
+                            name={name}
+                            start={start}
+                            finish={finish}
+                        />
 
-        </div>
+                    </Fragment>
+                })}
+
+            </div>
+        </section>
     );
 }
 
