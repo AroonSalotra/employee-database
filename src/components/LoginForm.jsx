@@ -26,7 +26,7 @@ const LoginForm = () => {
                 Password
             </label>
 
-            <input type="text"
+            <input type="password"
                 name=""
                 id=""
                 className="bg-slate-200"
