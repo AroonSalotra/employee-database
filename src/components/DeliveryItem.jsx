@@ -11,7 +11,7 @@ const DeliveryItem = ({ deliveryFrom }) => {
     }, [])
 
     return (
-        <li className="flex justify-between bg-lime-500 p-2">{deliveryFrom}
+        <li className="flex justify-between bg-lime-500 p-2 w-52 my-4">{deliveryFrom}
             <span className="bg-white px-4 rounded-lg w-32">due by {time}</span>
         </li>
     );

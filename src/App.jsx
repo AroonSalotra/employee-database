@@ -13,18 +13,32 @@ function App() {
 
   const [today, setToday] = useState(null)
 
+  const [todayData, setTodayData] = useState(null)
+
   useEffect(() => {
     const getDay = dayjs().day()
+    // console.log(getDay)
 
     const formatDay = dayjs().day(getDay).format(`dddd`)
     setToday(current => formatDay)
+
+    setTodayData({
+      dayId: getDay,
+      dayName: formatDay
+    })
+
   }, [])
+
+  useEffect(() => {
+    // console.log(todayData)
+  }, [todayData])
+
+  // console.log(dayjs().day(0).format("dddd"))
 
   return (
     <>
-
-
       <BrowserRouter>
+
         <Navbar />
 
         <Routes>
@@ -36,10 +50,9 @@ function App() {
           <Route path='manager'
             element={<>
               <Employees day={today} />
-              <Deliveries day={today} />
+              <Deliveries day={today} dayId={todayData?.dayId} />
             </>}
           />
-
 
         </Routes>
 

@@ -4,7 +4,7 @@ const LoginForm = () => {
 
     const navigate = useNavigate()
 
-    const handleSubmit = () => navigate("/employees")
+    const handleSubmit = () => navigate("/manager")
 
     return (
         <form action=""
