@@ -1,9 +1,9 @@
 import { BiDotsHorizontalRounded } from "react-icons/bi"
 import { useState, useEffect } from "react";
-import EmployeeData from "../data/EmployeeData.json"
+// import EmployeeData from "../data/EmployeeData.json"
 
 
-const EmployeeCard = ({ id, name, start, finish }) => {
+const EmployeeCard = ({ id, name, start, end }) => {
 
     const [dropdownActive, setDropdownActive] = useState(false)
     const [officeProgress, setOfficeProgress] = useState(false)
@@ -65,7 +65,7 @@ const EmployeeCard = ({ id, name, start, finish }) => {
                     </li>
 
                     <li>
-                        {finish ? finish + ":00" : null}
+                        {end ? end + ":00" : null}
                     </li>
 
                 </ul>

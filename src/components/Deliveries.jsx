@@ -42,7 +42,7 @@ const Deliveries = ({ today, dayId }) => {
     }, [dayId])
 
     return (
-        <div>
+        <div className="bg-slate-500">
 
             <div className="flex justify-center gap-20 py-4 text-3xl">
 
@@ -50,7 +50,7 @@ const Deliveries = ({ today, dayId }) => {
                     className="text-slate-400"><BsArrowLeftSquareFill /></button>
 
                 <button onClick={() => setIndex(dayId)}
-                    className="w-20" >
+                    className="w-20">
                     {weekDays[index]}</button>
 
                 <button onClick={() => handleIndexChange("next")}

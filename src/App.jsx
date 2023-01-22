@@ -1,6 +1,6 @@
 import './App.css'
 import EmployeeCard from './components/EmployeeCard'
-import EmployeeData from "./data/EmployeeData.json"
+// import EmployeeData from "./data/EmployeeData.json"
 import Employees from './components/Employees'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LoginForm from './components/LoginForm'
@@ -8,16 +8,19 @@ import Navbar from './components/Navbar'
 import dayjs from "dayjs";
 import { useState, useEffect } from 'react'
 import Deliveries from './components/Deliveries'
+import { db } from './firebase-config'
+import {
+  getDoc, collection, getDocs,
+  addDoc
+} from "firebase/firestore"
 
 function App() {
 
   const [today, setToday] = useState(null)
-
   const [todayData, setTodayData] = useState(null)
 
   useEffect(() => {
     const getDay = dayjs().day()
-    // console.log(getDay)
 
     const formatDay = dayjs().day(getDay).format(`dddd`)
     setToday(current => formatDay)
@@ -29,11 +32,7 @@ function App() {
 
   }, [])
 
-  useEffect(() => {
-    // console.log(todayData)
-  }, [todayData])
-
-  // console.log(dayjs().day(0).format("dddd"))
+ 
 
   return (
     <>
