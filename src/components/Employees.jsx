@@ -24,20 +24,21 @@ const Employees = ({ day }) => {
     }, [])
 
     useEffect(() => {
-        console.log(employeeData)
+        // console.log(employeeData)
     }, [employeeData])
 
     // console.log(EmployeeData)
 
 
     return (
-        <section>
+        <section className="pt-20">
 
-            <h1 className="text-4xl text-center font-semibold bg-white text-slate-600 w-fit mx-auto px-8 py-2">
-                {day}
+            <h1 className="title">
+                {/* {day} */}
+                Today's Employees
             </h1>
 
-            <div className="gap-4 pt-20 grid grid-cols-3">
+            <div className="gap-4 pt-20 sm:grid grid-cols-3">
 
                 {employeeData.map(({ employeeId, name, start, end }, index) => {
                     return <Fragment key={index}>

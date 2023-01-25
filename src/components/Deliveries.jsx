@@ -42,7 +42,9 @@ const Deliveries = ({ today, dayId }) => {
     }, [dayId])
 
     return (
-        <div className="bg-slate-500">
+        <div>
+
+            <h2 className="title">Deliveries</h2>
 
             <div className="flex justify-center gap-20 py-4 text-3xl">
 
@@ -58,7 +60,7 @@ const Deliveries = ({ today, dayId }) => {
 
             </div>
 
-            <div className="w-52 mx-auto overflow-hidden">
+            <div className="w-80 mx-auto overflow-hidden">
 
                 <div className="flex justify-start transition-all"
                     style={{ transform: `translateX(-${index}00%)` }}>
