@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import { useState, useEffect } from 'react'
 import Deliveries from './components/Deliveries'
 import Header from './components/Header'
+import Home from './components/Home'
 
 function App() {
 
@@ -33,12 +34,12 @@ function App() {
       <BrowserRouter>
 
         <Navbar />
-        <Header day={today} />
+        {/* <Header day={today} /> */}
 
         <Routes>
 
           <Route path='/'
-            element={<LoginForm />}
+            element={<Home />}
           />
 
           <Route path='manager'

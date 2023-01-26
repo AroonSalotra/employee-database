@@ -16,11 +16,12 @@ const Header = ({ day }) => {
     }, [])
 
 
+
     return (
         <>
             <header className="border-l-2 pl-4">
                 <ul>
-                    <li className="font-semibold">{day}</li>
+                    <li className="font-semibold text-xl">{day}</li>
                     <li>{time}</li>
                     <li>{date}</li>
                 </ul>

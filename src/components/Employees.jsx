@@ -38,7 +38,7 @@ const Employees = ({ day }) => {
                 Today's Employees
             </h1>
 
-            <div className="gap-4 pt-20 sm:grid grid-cols-3">
+            <div className="gap-4 pt-20 flex flex-wrap sm:grid grid-cols-3">
 
                 {employeeData.map(({ employeeId, name, start, end }, index) => {
                     return <Fragment key={index}>

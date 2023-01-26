@@ -1,10 +1,12 @@
 import { useState, useEffect, Fragment } from "react";
 import DeliveryItem from "./DeliveryItem";
 import { BsArrowRightSquareFill, BsArrowLeftSquareFill } from "react-icons/bs"
+import Header from "./Header";
 
 const Deliveries = ({ today, dayId }) => {
 
     const [index, setIndex] = useState(null)
+
     const weekDays = [
         "Sun",
         "Mon",
@@ -41,45 +43,54 @@ const Deliveries = ({ today, dayId }) => {
         setIndex(dayId)
     }, [dayId])
 
+
     return (
-        <div>
+        <>
 
-            <h2 className="title">Deliveries</h2>
+            <Header day={today} />
 
-            <div className="flex justify-center gap-20 py-4 text-3xl">
+            <div className="pt-12">
 
-                <button onClick={() => handleIndexChange("prev")}
-                    className="text-slate-400"><BsArrowLeftSquareFill /></button>
+                <h2 className="title">Deliveries</h2>
 
-                <button onClick={() => setIndex(dayId)}
-                    className="w-20">
-                    {weekDays[index]}</button>
+                <div className="flex gap-20 pt-12 text-3xl">
 
-                <button onClick={() => handleIndexChange("next")}
-                    className="text-slate-400"><BsArrowRightSquareFill /></button>
+                    <button onClick={() => handleIndexChange("prev")}
+                        className="text-slate-400"><BsArrowLeftSquareFill />
+                    </button>
 
-            </div>
+                    <button onClick={() => setIndex(dayId)}
+                        className="w-20">
+                        {weekDays[index]}</button>
 
-            <div className="w-80 mx-auto overflow-hidden">
-
-                <div className="flex justify-start transition-all"
-                    style={{ transform: `translateX(-${index}00%)` }}>
-
-                    {upcomingDeliveres.map((delivery, index) => {
-                        return <ul key={index}>
-
-                            {delivery.map((item) => <Fragment key={`${item} ${index}`}>
-                                <DeliveryItem deliveryFrom={item} />
-                            </Fragment>
-                            )}
-
-                        </ul>
-                    })}
+                    <button onClick={() => handleIndexChange("next")}
+                        className="text-slate-400"><BsArrowRightSquareFill />
+                    </button>
 
                 </div>
 
+                <div className="w-80 sm:w-96 overflow-hidden">
+
+                    <div className="flex justify-start transition-all"
+                        style={{ transform: `translateX(-${index}00%)` }}>
+
+                        {upcomingDeliveres.map((delivery, index) => {
+                            return <ul key={index}>
+
+                                {delivery.map((item) => <Fragment key={`${item} ${index}`}>
+                                    <DeliveryItem deliveryFrom={item} />
+                                </Fragment>
+                                )}
+
+                            </ul>
+                        })}
+
+                    </div>
+
+                </div>
             </div>
-        </div>
+        </>
+
     );
 
 }
