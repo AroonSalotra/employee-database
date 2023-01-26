@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react'
 import Deliveries from './components/Deliveries'
 import Header from './components/Header'
 import Home from './components/Home'
+import Holidays from './components/Holidays'
 
 function App() {
 
@@ -47,6 +48,10 @@ function App() {
               <Deliveries day={today} dayId={todayData?.dayId} />
               <Employees day={today} />
             </>}
+          />
+
+          <Route path='holidays'
+            element={<Holidays />}
           />
 
         </Routes>

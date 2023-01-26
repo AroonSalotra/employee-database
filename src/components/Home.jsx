@@ -1,4 +1,5 @@
 import IconLink from "./IconLink";
+import { Fragment } from "react";
 
 const Home = () => {
 
@@ -10,7 +11,7 @@ const Home = () => {
 
     return (
         <section>
-            <h2>[COMPANY NAME] Home Page</h2>
+            <h2 className="text-5xl py-4 pb-8">[COMPANY NAME] Home Page</h2>
 
             <h3 className="title">Manager Access</h3>
 
@@ -21,7 +22,9 @@ const Home = () => {
             <h3 className="title">Employee Portal</h3>
             <div className="flex gap-24 py-2">
                 {employeeList.map(({ linkTo }) => {
-                    return <IconLink linkTo={linkTo} />
+                    return <Fragment key={linkTo}>
+                        <IconLink linkTo={linkTo} />
+                    </Fragment>
                 })}
             </div>
 

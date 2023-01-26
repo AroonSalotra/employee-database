@@ -16,7 +16,6 @@ const Employees = ({ day }) => {
         getDocs(colEmployees)
             .then((items) => {
                 items.forEach((doc) => {
-                    // console.log({ ...doc.data(), id: doc.id })
                     setEmployeeData(d => [...d, { ...doc.data(), id: doc.id }])
                 })
             })
@@ -24,10 +23,8 @@ const Employees = ({ day }) => {
     }, [])
 
     useEffect(() => {
-        // console.log(employeeData)
     }, [employeeData])
 
-    // console.log(EmployeeData)
 
 
     return (
